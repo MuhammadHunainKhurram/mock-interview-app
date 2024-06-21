@@ -86,18 +86,21 @@ function RecordAnswer({mockInterviewQuestions, activeQuestionIndex, interviewDat
 
   return (
     <div className='flex items-center justify-center flex-col'>
-      <div className='flex flex-col justify-center my-10 items-center rounded-lg bg-primary overflow-hidden'> 
-      <Webcam
-        audio={false}
-        height={720}
-        screenshotFormat="image/jpeg"
-        width={1280}
-      />
-      </div>
-      <Button 
-      disable={loading}
-      variant='outline' 
-      className='border-primary' 
+        <div className='flex flex-col mt-10 justify-center items-center bg-black rounded-lg p-5'>
+            <Image src={'/webcam.png'} width={200} height={200} 
+            className='absolute'/>
+            <Webcam
+            mirrored={true}
+            style={{
+                height:500,
+                width:500,
+                zIndex:10,
+            }}
+            />
+        </div>
+        <Button 
+        disabled={loading}
+        variant="outline" className="my-10"
       onClick={SaveUserAnswer}>
         {isRecording
         ?
@@ -106,10 +109,8 @@ function RecordAnswer({mockInterviewQuestions, activeQuestionIndex, interviewDat
         </h2>
 
         :
-        'Record Answer'
-        }
-      </Button>
-      {/* <Button onClick={()=>console.log(userAnswer)}>Show User Answer</Button>  */}
+        <h2 className=' flex gap-2 items-center'>
+              <Mic/>  Record Answer</h2> }</Button>
     </div>
   )
 }

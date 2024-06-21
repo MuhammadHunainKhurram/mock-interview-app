@@ -61,15 +61,18 @@ function Interview({params}) {
                             <Button  variant = "ghost" className="w-full bg-primary py-2 px-4 rounded" onClick={() => setWebCamEnabled(true)}>
                                 <h2 className='text-md font-bold'>Enable Camera & Microphone</h2>
                             </Button>
+
                         </>
                     )}
+                    
+                    <div className='flex justify-end items-end mt-10 w-full'>
+                        <Link href={'/dashboard/interview/'+ params.interviewId +'/start'}>
+                            <Button className=''>Start Interview</Button>
+                        </Link>
+                    </div>
                 </div>
             </div>
-            <div className='flex justify-end items-end '>
-                <Link href={'/dashboard/interview/'+ params.interviewId +'/start'}>
-                    <Button className=''>Start Interview</Button>
-                </Link>
-            </div>
+
         </div>
     )
 }
