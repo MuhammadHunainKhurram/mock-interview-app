@@ -88,7 +88,7 @@ NEXT_PUBLIC_GEMINI_API_KEY=
 
 NEXT_PUBLIC_INTERVIEW_QUESTION_AMOUNT=
 
-NEXT_PUBLIC_INFORMATION="	Enable your camera and microphone and  click 'Start Interview'. Stay close to the microphone and try to answer questions clearly and concisely."
+NEXT_PUBLIC_INFORMATION="Enable your camera and microphone and  click 'Start Interview'. Stay close to the microphone and try to answer questions clearly and concisely."
 
 
 NEXT_PUBLIC_NOTE="Read each question carefully. Once you've read a question, click 'Record Answer' and answer the question. Do this for everu single question, and when you've reached the end, you can simply click 'End Interview'"
