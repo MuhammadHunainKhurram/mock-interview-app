@@ -8,7 +8,7 @@ function QuestionSection({mockInterviewQuestions, activeQuestionIndex}) {
             window.speechSynthesis.speak(speech)
         }
         else{
-            alert('Sorry. youre browserr does not support Text To Speech')
+            alert('Sorry. youre browser does not support Text-to-Speech')
         }
     }
   return mockInterviewQuestions&&(

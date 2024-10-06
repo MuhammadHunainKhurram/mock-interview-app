@@ -59,7 +59,6 @@ function AddNewInterview() {
                 createdAt:      moment().format('MM-DD-yyyy')
             }).returning({mockId:MockInterview.mockId})
 
-            console.log("Inserted ID: ", resp)
             if(resp){
                 setOpenDialog(false);
                 Router.push('/dashboard/interview/'+resp[0]?.mockId)

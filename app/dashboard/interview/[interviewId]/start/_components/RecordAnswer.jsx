@@ -28,6 +28,13 @@ function RecordAnswer({mockInterviewQuestions, activeQuestionIndex, interviewDat
     setResults
   } = useSpeechToText({continuous: true, useLegacyResults: false});
 
+
+  useEffect(() => {
+    if (isRecording) {
+      setUserAnswer('');
+    }
+  }, [isRecording]);
+
   useEffect(()=>{
     results.map((result)=>(
       setUserAnswer(prevAns=>prevAns+result?.transcript)
@@ -47,12 +54,11 @@ function RecordAnswer({mockInterviewQuestions, activeQuestionIndex, interviewDat
         +
         ", User Answer: " + userAnswer 
         + 
-        ", Depending on the question and the user answer, please provide a rating (1 - 10) for the answer, along with feedback on areas of improvement, if any, in just 3-5 lines. Do this in JSON format, with a STRING rating field and a feedback field."
-        
+        ". Depending on the question and the user answer, please provide a rating (1 - 10) for the answer. If no answer is provided, please state that no answer was provided. In addition to the rating, provide feedback on areas of improvement, if any, in just 3-5 lines. Do this in JSON format, with a STRING rating field and a feedback field."
         const result = await chatSession.sendMessage(feedbackPrompt)
 
+
         const mockJsonResp = (result.response.text().replace('```json','').replace('```',''));
-        console.log(mockJsonResp)
         const JsonFeebackResp = JSON.parse(mockJsonResp);
 
         const resp = await db.insert(UserAnswer)
